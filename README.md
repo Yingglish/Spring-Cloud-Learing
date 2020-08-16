@@ -1,4 +1,4 @@
-"# Spring-Cloud-Learing" 
+# Spring-Cloud-Learing
 
 ## 搭建Eureka注册中心集群
 给eureka-sever添加配置文件application-cluster1.yml和application-cluster2.yml
@@ -40,3 +40,4 @@ eureka:
 ```
 
 在idea添加 cluster1 和 cluster 2俩种启动配置
+
