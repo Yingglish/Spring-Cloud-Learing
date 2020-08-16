@@ -1,0 +1,24 @@
+package github.yix.ribbonservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+public class RibbonServiceApplication {
+
+    @Bean
+    @LoadBalanced // 使用@LoadBalanced注解赋予RestTemplate负载均衡的能力
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(RibbonServiceApplication.class, args);
+    }
+
+}

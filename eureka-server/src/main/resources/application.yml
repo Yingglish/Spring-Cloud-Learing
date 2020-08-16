@@ -1,0 +1,17 @@
+server:
+  port: 8761 # 指定运行端口
+
+eureka:
+  instance:
+    hostname: localhost # 指定服务名称
+  client:
+    registerWithEureka: false # 指定是否要从注册中心获取服务（注册中心不需要开启）
+    fetchRegistry: false # 指定是否要注册到注册中心（注册中心不需要开启）
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# Eureka-server 默认的模板引擎为Freemarker 若要使用Thymeleaf则需要填入如下设置
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    prefer-file-system-access: false

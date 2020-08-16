@@ -1,0 +1,11 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: eureka-client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://cluster1:8002/eureka/,http://cluster2:8003/eureka/ #同时注册到两个注册中心

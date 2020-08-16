@@ -1,0 +1,17 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: eureka-client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # 默认 主机名：服务名称：服务端口
+    # ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application. instance_id:${server.port}}
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true # 自定义instance-id 需要设为 true
+    status-page-url: https://cn.bing.com/ # 当点击 Instance ID 进行跳转的时候，就可以用 IP 跳转了，跳转的地址默认是 IP+Port/info
